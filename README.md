@@ -6,8 +6,9 @@ from my master's class in theory of programming languages.
 In the activity, we where tasked to create a script base
 on the specified op-codes of the robot.
 
-I though that maybe we can 'game-ify' this by adding levels
-as it goes on.
+The idea is to game-ify this activity by adding levels
+and extra functionalities that the original script did not
+have.
 
 Currently the game is still in alpha and much progress needs
 to be done. For example, I am using a placeholder character
@@ -26,3 +27,5 @@ Run in npm:
     npm run webpack-dev-server
 
 The demo runs at [http://localhost:8080](http://localhost:8080)
+
+Shout out to Prof. Solomon See from DLSU for the inspiration for this game (Since the idea popped-in during his class)
