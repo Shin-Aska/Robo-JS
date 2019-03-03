@@ -1,0 +1,28 @@
+<html>
+<body>
+	<div id="grid" style="height:250px">
+	</div>
+	<div>
+		<label>Code:</label><br/>
+		<textarea id="code" rows="10" cols="25"></textarea><br/>
+		Delay: <input type="text" id="delay" value="100"/>
+		<button onclick="startSimulate()">Start Simulation</button><br/>
+		<div id="message"></div>
+	</div>
+	<script src="robo.js">
+	</script>
+	<script>
+		drawMap("grid");
+
+		function startSimulate() {
+			var code = document.getElementById("code").value;
+			delay = document.getElementById("delay").value;
+			code = code.replace(/[' '\r\n]+/g, '');
+			reloadProgram(code);
+			resetMachine();
+			setTimeout(start,1000);
+		}
+		
+	</script>
+</body>
+</html>

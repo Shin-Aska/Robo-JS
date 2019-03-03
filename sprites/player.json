@@ -1,0 +1,251 @@
+{
+	"textures": [
+		{
+			"image": "player.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 252,
+				"h": 40
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "north/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 35
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 35
+					}
+				},
+				{
+					"filename": "north/002.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 36
+					},
+					"frame": {
+						"x": 28,
+						"y": 0,
+						"w": 25,
+						"h": 36
+					}
+				},
+				{
+					"filename": "sideview-standby/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					},
+					"frame": {
+						"x": 56,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					}
+				},
+				{
+					"filename": "sideview/002.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					},
+					"frame": {
+						"x": 56,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					}
+				},
+				{
+					"filename": "sideview/004.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					},
+					"frame": {
+						"x": 56,
+						"y": 0,
+						"w": 17,
+						"h": 40
+					}
+				},
+				{
+					"filename": "sideview/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 27,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 27,
+						"h": 34
+					},
+					"frame": {
+						"x": 84,
+						"y": 0,
+						"w": 27,
+						"h": 34
+					}
+				},
+				{
+					"filename": "sideview/003.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 34
+					},
+					"frame": {
+						"x": 112,
+						"y": 0,
+						"w": 26,
+						"h": 34
+					}
+				},
+				{
+					"filename": "south/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 28,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 28,
+						"h": 38
+					},
+					"frame": {
+						"x": 140,
+						"y": 0,
+						"w": 28,
+						"h": 38
+					}
+				},
+				{
+					"filename": "south/002.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 25,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 25,
+						"h": 36
+					},
+					"frame": {
+						"x": 168,
+						"y": 0,
+						"w": 25,
+						"h": 36
+					}
+				},
+				{
+					"filename": "standby-north/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 39
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 39
+					},
+					"frame": {
+						"x": 196,
+						"y": 0,
+						"w": 26,
+						"h": 39
+					}
+				},
+				{
+					"filename": "standby-south/001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 27,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 27,
+						"h": 40
+					},
+					"frame": {
+						"x": 224,
+						"y": 0,
+						"w": 27,
+						"h": 40
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:d3fff90a29b756240e0a3c17e784f942:5a27322606ea0072c8695b8787622553:86d5339b780aedd87b35e2b7c0a7e11b$"
+	}
+}

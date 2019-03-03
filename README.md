@@ -1,2 +1,28 @@
-# Robo-JS
-A simple game written in Phaser 3 where you program a robot to do series of tasks using its own 'machine code'
+Robo JS Game
+===========================================
+
+This game is made as a direct inspiration from an activity
+from my master's class in theory of programming languages.
+In the activity, we where tasked to create a script base
+on the specified op-codes of the robot.
+
+I though that maybe we can 'game-ify' this by adding levels
+as it goes on.
+
+Currently the game is still in alpha and much progress needs
+to be done. For example, I am using a placeholder character
+directly ripped from  megaman soccer (which will be changed soon).
+
+How to run the example (yarn):
+
+    git clone https://github.com/Shin-Aska/Robo-JS.git
+    yarn
+    yarn run webpack-dev-server
+
+Run in npm:
+
+    git clone https://github.com/Shin-Aska/Robo-JS.git
+    npm
+    npm run webpack-dev-server
+
+The demo runs at [http://localhost:8080](http://localhost:8080)
