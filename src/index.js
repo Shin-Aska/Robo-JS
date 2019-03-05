@@ -3,8 +3,8 @@ import 'phaser';
 var config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
-    width: 1280,
-    height: 720,
+    width: 1510,
+    height: 760,
     scene: {
         preload: preload,
         create: create,
@@ -16,19 +16,58 @@ var config = {
 
 var game = new Phaser.Game(config);
 var robot;
+var planet;
 
 function preload()
 {
+    this.load.multiatlas('tiles', 'assets/tiles.json', "assets");
     this.load.multiatlas('space', 'assets/space.json', "assets");
-    this.load.multiatlas('cityscene', 'assets/cityscene.json', "assets");
-    this.load.multiatlas('robot', 'sprites/robot.json', 'sprites');
     this.load.multiatlas('player', 'sprites/player.json', 'sprites');
+    this.load.multiatlas('background', 'assets/background.json', 'assets');
 }
+
+var tilemap = [[0,1,0,0,1,1,0,0,0,0],
+		       [0,1,0,0,0,0,0,4,4,0],
+		       [0,1,4,4,0,1,0,4,0,0],
+		       [0,1,4,0,0,1,0,0,0,0],
+               [0,0,0,0,0,1,0,0,0,2]];
+           
+var coordinateMap  = [[0,4,0,0,0,0,0,0,0,0],
+                         [0,0,2,0,0,0,0,0,0,0],
+                         [0,0,2,0,0,0,0,0,0,2],
+                         [0,0,0,0,0,0,0,0,0,0],
+                         [0,0,0,0,0,0,0,0,0,0]];
 
 function create()
 {
-    var background = this.add.sprite(0, 0, 'space', 'space.jpg');
+    var background = this.add.sprite(0, 0, 'background', 'bg.png');
+    background.setScale(10, 9);
 
+    var dust = this.add.sprite(0, 0, 'background', 'sp4.png');
+    dust.setScale(6, 6);
+
+    var dust2 = this.add.sprite(900, 500, 'background', 'sp4.png');
+    dust2.setScale(3, 3);
+
+    planet = this.add.sprite(50, 340, 'background', "sp1.png");
+    planet.setScale(3, 3);
+
+    var distance = 150;
+
+    for (var row = 0; row < 5; row++) {
+        for (var column = 0; column < 10; column++) {
+            var tile;
+            if (tilemap[row][column] == 0)
+                tile = this.add.sprite(80 + (column * distance), 80 + (row * distance), 'tiles', 'floor1.png');
+            else if (tilemap[row][column] == 1)
+                tile = this.add.sprite(80 + (column * distance), 80 + (row * distance), 'tiles', 'wall1.png');
+            else if (tilemap[row][column] == 2)
+                tile = this.add.sprite(80 + (column * distance), 80 + (row * distance), 'tiles', 'floor2.png');
+            tile.setScale(10, 10);
+            tilemap[row][column] = tile;
+            coordinateMap[row][column] = [80 + (column * distance), 80 + (row * distance)]
+        }
+    }
 
     robot = this.add.sprite(0, 400, 'player', 'sideview/001.png');
     robot.setScale(4, 4);
@@ -49,14 +88,16 @@ function create()
     this.anims.create({ key: 'sideview', frames: robotRunSideViewFrames, frameRate: 6, repeat: -1 });
     this.anims.create({ key: 'north', frames: robotRunNorthFrames, frameRate: 6, repeat: -1 });
     this.anims.create({ key: 'south', frames: robotRunSouthFrames, frameRate: 6, repeat: -1 });
-    robot.anims.play('idle-sideview');
-    robot.x = 500;
+    robot.anims.play('idle-north');
+    robot.x = 80;
+    robot.y = 80;
 
     robot.isRunning = false;
     robot.directed = false;
     robot.directedCoordinates = [];
     robot.direction = "NONE";
     
+    /*
     this.input.keyboard.on('keydown-RIGHT', function (event) {
         robot.isRunning = true;
         if (robot.direction == "NONE") {
@@ -125,10 +166,16 @@ function create()
         }
         robot.direction = "NONE";
     });
+    */
 }
 
 function update(time, delta)
 {
+    planet.x += delta/24;
+    if (planet.x > 1280) {
+        planet.x = -50;
+    }
+
     if (robot.isRunning){
         
         if (robot.direction == "RIGHT") {
@@ -231,12 +278,41 @@ function update(time, delta)
 }
 
 
-function setDirection(robot, x, y) {
+function move(robot, x, y) {
     robot.directedCoordinates[0] = x;
     robot.directedCoordinates[1] = y;
     robot.directed = true;
 }
 
+function fmove(robot, x, y) {
+    robot.x = x;
+    robot.y = y;
+}
+
+
+global.setRobotDirection = function(v) {
+    if (v == 0) {
+        robot.anims.play("idle-north".toLowerCase());
+    }
+    else if (v == 1) {
+        robot.anims.play("idle-sideview");
+        robot.setScale(4, 4);
+    }
+    else if (v == 2) {
+        robot.anims.play("idle-south".toLowerCase());
+    }
+    else if (v == 3) {
+        robot.anims.play("idle-sideview");
+        robot.setScale(-4, 4);
+    }
+}
+
 global.makeRobotMove = function(x, y) {
-    setDirection(robot, x, y);
+    var coordinates = coordinateMap[y][x];
+    move(robot, coordinates[0], coordinates[1]);
+}
+
+global.forceRobotMove = function(x, y) {
+    var coordinates = coordinateMap[y][x];
+    fmove(robot, coordinates[0], coordinates[1]);
 }

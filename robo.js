@@ -41,11 +41,23 @@ function drawMap(id) {
 	elem.innerHTML += "<div id=\"robot\" style=\"background:red;text-align: center;vertical-align: middle;line-height: " + blockSize/2 + "px;border-radius:50%; color:white; width:" + blockSize/2 + "px; height:" + blockSize/2 + "px;position:absolute;left:" + (locx * blockSize) + ";top:" + (locy * blockSize) +"\">" + direction + "</div>"
 }
 
+var llocx = -1, llocy = -1;
+
 function redrawBotPosition() {
-	var elem = document.getElementById("robot");
-	elem.style.left = locx * blockSize;
-	elem.style.top = locy * blockSize;
-	elem.innerText = direction;
+	//var elem = document.getElementById("robot");
+	//elem.style.left = locx * blockSize;
+	//elem.style.top = locy * blockSize;
+	//elem.innerText = direction;
+
+	if (llocx == locx && llocy == locy) {
+		setRobotDirection(direction);
+	}
+	else {
+		makeRobotMove(locx, locy);
+	}
+	llocx = locx;
+	llocy = locy;
+	console.log([locx, locy, direction])
 }
 
 
@@ -63,6 +75,10 @@ function resetMachine() {
 	direction=0;
 	locx=0;
 	locy=0;
+	llocx = 0;
+	llocy = 0;
+	setRobotDirection(direction);
+	forceRobotMove (locx, locy);
 	// Update the screen
 	redrawBotPosition();
 	showMessage("");

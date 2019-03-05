@@ -9,9 +9,7 @@ on the specified op-codes of the robot.
 I though that maybe we can 'game-ify' this by adding levels
 as it goes on.
 
-Currently the game is still in alpha and much progress needs
-to be done. For example, I am using a placeholder character
-directly ripped from  megaman soccer (which will be changed soon).
+[![Game](https://img.youtube.com/vi/RlSc0fsRZg0/0.jpg)](https://www.youtube.com/watch?v=YRlSc0fsRZg0E)
 
 How to run the example (yarn):
 

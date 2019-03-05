@@ -1,9 +1,55 @@
  <!DOCTYPE html>
  <html>
      <head>
-         <meta charset="utf-8">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <style type="text/css">
+            textarea {
+             min-width: 300px;
+             min-height: 100px;
+             background-color: black;
+             font-size: 1em;
+             font-weight: bold;
+             font-family: monospace;
+             color: green;
+             border: 1px solid black;
+            }
+        </style>
      </head>
      <body>
-         <script src="build/project.bundle.js" charset="utf-8"></script>
+        <script src="build/project.bundle.js" charset="utf-8"></script>
+        <div id="dialog" title="Controls Dialog">
+            <center>
+                <label>Code:</label><br/>
+                <textarea id="code" rows="10" cols="25"></textarea><br/>
+                <input type="hidden" id="delay" value="2000"/>
+                <button onclick="startSimulate()">Start Simulation</button><br/>
+                <div id="message"></div>
+             </center>
+        </div>
+        <script src="robo.js">
+        </script>
+        <script>
+    
+            function startSimulate() {
+                var code = document.getElementById("code").value;
+                delay = document.getElementById("delay").value;
+                code = code.replace(/[' '\r\n]+/g, '');
+                reloadProgram(code);
+                resetMachine();
+                setTimeout(start,1000);
+            }
+
+            function showDialog() {
+                $( "#dialog" ).dialog();
+            }
+            $( "#dialog" ).dialog();
+        </script>
+        <button onclick="showDialog()">Show Controls</button>
+        <br/>
+        <br/>
      </body>
  </html>
