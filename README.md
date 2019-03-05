@@ -10,7 +10,7 @@ The idea is to game-ify this activity by adding levels
 and extra functionalities that the original script did not
 have.
 
-[![Game](https://img.youtube.com/vi/RlSc0fsRZg0/0.jpg)](https://www.youtube.com/watch?v=YRlSc0fsRZg0E)
+[![Game](https://img.youtube.com/vi/RlSc0fsRZg0/0.jpg)](https://www.youtube.com/watch?v=RlSc0fsRZg0E)
 
 How to run the example (yarn):
 
