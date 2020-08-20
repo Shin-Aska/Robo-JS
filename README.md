@@ -12,18 +12,24 @@ have.
 
 [![Game](https://img.youtube.com/vi/RlSc0fsRZg0/0.jpg)](https://www.youtube.com/watch?v=RlSc0fsRZg0E)
 
-How to run the example (yarn):
+How to run example:
 
     git clone https://github.com/Shin-Aska/Robo-JS.git
-    yarn
-    yarn run webpack-dev-server
+    cd Robo-JS
+    npm install webpack-cli -g (add sudo if on linux)
+    npm install http-server -g (add sudo if on linux)
+    npm install
+    webpack --config webpack.config.js
+    http-server
 
-Run in npm:
+You can replace http-server with other http server that you wish to use. If you are going to host the project on Apache
+You only need to copy the following files and folders:
+1. assets
+2. sprites
+3. build
+4. index.html
+5. robo.js
 
-    git clone https://github.com/Shin-Aska/Robo-JS.git
-    npm
-    npm run webpack-dev-server
-
-The demo runs at [http://localhost:8080](http://localhost:8080)
+The demo runs at [http://127.0.0.1:8080](http://127.0.0.1:8080)
 
 Shout out to Prof. Solomon See from DLSU for the inspiration for this game (Since the idea popped-in during his class)
